@@ -32,14 +32,14 @@ export default async function handle(req, res) {
 		await Product.updateOne(
 			{ _id },
 			{ title, description, price, images, category, properties }
-        );
-        res.json(true);
-    }
-    
-    if (method === "DELETE") {
-        if (req.query?.id) {
-            await Product.deleteOne({ _id: req.query?.id });
-            res.json(true);
-        }
-    }
+		);
+		res.json(true);
+	}
+
+	if (method === "DELETE") {
+		if (req.query?._id) {
+			await Product.deleteOne({ _id: req.query?._id });
+			res.json(true);
+		}
+	}
 }
